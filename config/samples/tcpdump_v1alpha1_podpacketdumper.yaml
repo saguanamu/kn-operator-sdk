@@ -1,0 +1,12 @@
+apiVersion: tcpdump.kyeongna.io/v1alpha1
+kind: PodPacketDumper
+metadata:
+  labels:
+    app.kubernetes.io/name: podpacketdumper
+    app.kubernetes.io/instance: podpacketdumper-sample
+    app.kubernetes.io/part-of: kn-operator-sdk
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kn-operator-sdk
+  name: podpacketdumper-sample
+spec:
+  # TODO(user): Add fields here

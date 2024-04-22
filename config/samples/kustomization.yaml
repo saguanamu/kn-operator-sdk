@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- tcpdump_v1alpha1_podpacketdumper.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

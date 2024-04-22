@@ -1,0 +1,27 @@
+# permissions for end users to view podpacketdumpers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: podpacketdumper-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: kn-operator-sdk
+    app.kubernetes.io/part-of: kn-operator-sdk
+    app.kubernetes.io/managed-by: kustomize
+  name: podpacketdumper-viewer-role
+rules:
+- apiGroups:
+  - tcpdump.kyeongna.io
+  resources:
+  - podpacketdumpers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - tcpdump.kyeongna.io
+  resources:
+  - podpacketdumpers/status
+  verbs:
+  - get
