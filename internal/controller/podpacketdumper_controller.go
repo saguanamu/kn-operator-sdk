@@ -48,8 +48,11 @@ type PodPacketDumperReconciler struct {
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.16.3/pkg/reconcile
 func (r *PodPacketDumperReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
+	logger := log.FromContext(ctx)
 
 	// TODO(user): your logic here
+	logger = log.FromContext(ctx)
+	logger.Info("Loopy")
 
 	return ctrl.Result{}, nil
 }
