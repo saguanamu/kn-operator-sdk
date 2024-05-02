@@ -18,6 +18,7 @@ package controller
 
 import (
 	"context"
+	"time"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -54,6 +55,14 @@ func (r *PodPacketDumperReconciler) Reconcile(ctx context.Context, req ctrl.Requ
 	logger = log.FromContext(ctx)
 	logger.Info("Loopy")
 
+	packetCapture := &v1alpha1.PacketCapture{}
+    	pod := &corev1.Pod{}
+    
+    	for {
+        	capturedPacket := capturePacket(pod)
+		logger.Info("packet : ", capturedPacket)
+        	time.Sleep(1 * time.Second)
+    	}
 	return ctrl.Result{}, nil
 }
 
@@ -62,4 +71,4 @@ func (r *PodPacketDumperReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&tcpdumpv1alpha1.PodPacketDumper{}).
 		Complete(r)
-}
+} 
